@@ -3,14 +3,17 @@
 #include "IAttacking.h"
 
 
+enum class MovementState { LEFT, RIGHT};
 class Invader :
 	public GameObject, public IAttacking
 {
+private:
+	double screenSize;
 public:
-	static bool boundsTouched; //IF ANY OF INVADER CLOSE ENOUGH TO BOUNDS - STEP DOWN AND CHANGE MOVE DIRECTION
-	enum class Direction { LEFT, RIGHT };
+	static MovementState moveDir;
+
 	void attack() override;
-	Invader(sf::Sprite spr, double posX, double posY);
+	Invader(sf::Sprite spr, double posX, double posY, double spriteW, double spriteH, double screenSiezeX);
 	~Invader();
 };
 

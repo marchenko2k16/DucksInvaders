@@ -4,21 +4,35 @@
 #include <SFML/Audio.hpp>
 #include "Player.h"
 #include "Bullet.h"
-#include "Vector2d.h"
 
+#include"Engine.h"
 
-#include <fstream>
 
 int main()
 {
-	sf::RenderWindow renderWindow(sf::VideoMode(640, 480), "Demo Game");
+	sf::RenderWindow gameWindow(sf::VideoMode(1000, 1000), "SPACE INVADERS");
+	Engine engine;
+	engine.initGame(&gameWindow);
+	engine.preview();
+	engine.loop();
 
+	//////////////////////////////////////////////////////////////////////////////////////////
+	sf::Texture txtTest;
+	txtTest.loadFromFile("data\\images\\wall.png");
+	sf::Sprite wallPng;
+	wallPng.setTexture(txtTest);
+	sf::Vector2f v2(wallPng.getTexture()->getSize().x, wallPng.getTexture()->getSize().y);
+	std::cout << v2.x << " ------------- " << v2.y << "\n\n\n";
+	////////////////////////////////////////////////////////////////////
+	sf::RenderWindow renderWindow(sf::VideoMode(640, 480), "Demo Game");
 	sf::Event event;
 	sf::Texture texture;
 	texture.loadFromFile("data\\images\\two_in_1.jpg");
 
 	sf::IntRect rectSourceSprite(0, 0, 100, 100);
+
 	sf::Sprite sprite(texture, rectSourceSprite);
+
 	sf::Clock clock;
 
 	while (renderWindow.isOpen()) {
@@ -44,7 +58,7 @@ int main()
 	}
 
 	sf::Texture bulletTexture;
-	bulletTexture.loadFromFile("data\\images\\bullet_player.png");
+	bulletTexture.loadFromFile("data\\images\\16x16bullet.png");
 	sf::Sprite bullet_sprite;
 	bullet_sprite.setTexture(bulletTexture);
 	double bulletMoveX = 0;
@@ -53,30 +67,26 @@ int main()
 
 
 	sf::Music music;
-	music.openFromFile("data\\audio\\background_music.wav");
+	music.openFromFile("data\\audio\\music\\background_music.wav");
 	music.setLoop(true);
 	music.setVolume(10); 
 	music.play();
 
 
 	sf::SoundBuffer soundBuffer;
-	soundBuffer.loadFromFile("data\\audio\\shoot_sound.wav");
+	soundBuffer.loadFromFile("data\\audio\\sound\\shoot_sound.wav");
 	sf::Sound sound;
 	sound.setBuffer(soundBuffer);
-	sf::RenderWindow window(sf::VideoMode(500, 500), "SPACE INVADERS");
-
-	sf::CircleShape circleShape(200);
-	circleShape.setFillColor(sf::Color::Blue);
-	circleShape.setPosition(100, 100);
+	sf::RenderWindow window(sf::VideoMode(1000, 1000), "SPACE INVADERS");
 
 	sf::Texture player_texture;
-	player_texture.loadFromFile("data\\images\\ufo.png");
+	player_texture.loadFromFile("data\\images\\new_ufo.png");
 	sf::Sprite player_sprite;
 	player_sprite.setTexture(player_texture);
 	sf::Rect<float> bounds = player_sprite.getGlobalBounds();
 
-	double X = 200;
-	double Y = 400;
+	double X = 500;
+	double Y = 900;
 	double x0 = bounds.width / 2;
 	double y0 = bounds.height / 2;
 	double centreX = X + x0;
@@ -107,7 +117,6 @@ int main()
 	sf::Clock chasiki;
 	int ms100elapsedCounter = 0;
 	
-	double playerReloc = 0;
 
 	while (window.isOpen())
 	{
@@ -121,7 +130,7 @@ int main()
 			case (sf::Event::Closed):
 				window.close();
 				break;
-			case sf::Event::EventType::MouseButtonPressed:
+			case sf::Event::EventType::MouseMoved:
 
 				std::cout << v2.x << " --  X\n"<< v2.y <<" -- Y\n";
 				break;
@@ -150,20 +159,6 @@ int main()
 					player_sprite.setPosition(centreX, centreY);
 					//MOVE CHAR LEFT 
 				}
-				else if (event.key.code == sf::Keyboard::Enter)
-				{
-					std::cout << "SHOOT\n";
-					sound.play();
-					//MOVE CHAR LEFT 
-				}
-				else if(event.key.code == sf::Keyboard::Space)
-				{
-				}
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace))
-				{
-					std::cout << "sd::KeyBoard::isKeyPressed(sf::Keyboard::BackSpace)\n";
-				}
-				break;
 			default:
 				break;
 			}

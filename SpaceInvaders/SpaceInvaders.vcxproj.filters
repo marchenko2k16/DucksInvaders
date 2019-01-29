@@ -13,75 +13,108 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Abstraction/h">
+      <UniqueIdentifier>{fdbd3c68-bb54-45e0-bc07-6d22c283c97e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utilities/h">
+      <UniqueIdentifier>{6dd56399-aa76-4dc9-849e-e359c91124fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Drawable/h">
+      <UniqueIdentifier>{6910be51-5d8a-4acb-9548-93ca86fbac45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities/cpp">
+      <UniqueIdentifier>{ad9f74ba-4d75-4a30-a577-0dc361595569}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Abstraction/cpp">
+      <UniqueIdentifier>{12790621-6f38-4a94-a6e4-63eae3bc5e53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Drawable/cpp">
+      <UniqueIdentifier>{3bcb2d17-0c6c-4b6b-a84a-dd62bb282d1d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Invader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Boss.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Drawable/cpp</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Drawable/cpp</Filter>
     </ClCompile>
-    <ClCompile Include="Vector2d.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Decoration.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Wall.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\Abstraction/cpp</Filter>
     </ClCompile>
     <ClCompile Include="IAttacking.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Abstraction/cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Invader.cpp">
+      <Filter>Source Files\Drawable/cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Drawable/cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall.cpp">
+      <Filter>Source Files\Drawable/cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Saver.cpp">
+      <Filter>Source Files\Utilities/cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2d.cpp">
+      <Filter>Source Files\Utilities/cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources.cpp">
+      <Filter>Source Files\Utilities/cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files\Utilities/cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files\Utilities/cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="GameDescriptor.cpp">
+      <Filter>Source Files\Utilities/cpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Boss.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2d.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Decoration.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Invader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Wall.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Abstraction/h</Filter>
     </ClInclude>
     <ClInclude Include="IAttacking.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Abstraction/h</Filter>
     </ClInclude>
-    <ClInclude Include="SceneDatails.h">
-      <Filter>Resource Files</Filter>
+    <ClInclude Include="Saver.h">
+      <Filter>Header Files\Utilities/h</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2d.h">
+      <Filter>Header Files\Utilities/h</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>Header Files\Drawable/h</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files\Drawable/h</Filter>
+    </ClInclude>
+    <ClInclude Include="Invader.h">
+      <Filter>Header Files\Drawable/h</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\Drawable/h</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall.h">
+      <Filter>Header Files\Drawable/h</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files\Utilities/h</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files\Utilities/h</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources.h">
+      <Filter>Header Files\Utilities/h</Filter>
+    </ClInclude>
+    <ClInclude Include="GameDescriptor.h">
+      <Filter>Header Files\Utilities/h</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -97,8 +130,51 @@
     <Image Include="data\images\ufo.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="data\images\bullet_player.png">
+    <Image Include="data\images\two_in_1.jpg">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="data\images\duck_invader.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\images\wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\images\16x16bullet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\images\boss_bullet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\images\load_circle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\images\new_ufo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="data\audio\sound\on_enemy_died.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="data\audio\sound\on_player_damaged.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="data\audio\sound\on_player_died.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="data\audio\sound\shoot_sound.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="data\audio\music\background_music.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="data\audio\music\preview_background_music.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="data\fonts\Pixel-Miners.otf">
+      <Filter>Resource Files</Filter>
+    </Font>
   </ItemGroup>
 </Project>

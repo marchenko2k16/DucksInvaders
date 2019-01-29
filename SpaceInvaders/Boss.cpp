@@ -1,7 +1,8 @@
 #include "Boss.h"
 
 
-Boss::Boss(sf::Sprite spr, double posX, double posY) : GameObject(spr, posX, posY)
+Boss::Boss(sf::Sprite spr, double posX, double posY, double w, double h, double screenSizeX) : 
+	GameObject(spr, posX, posY, w, h), screenSize(screenSizeX)
 {
 }
 

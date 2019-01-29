@@ -34,12 +34,12 @@ namespace inGame
 		};
 
 		///MB FIX IN FUTURE
-		//Vector2d<T>& operator=(const Vector2d<T> &given)
-		//{
-		//	this.x = given.x;
-		//	this.y = given.y;
-		//	return *this;
-		//};
+		Vector2d<T>& operator=(const Vector2d<T> &given)
+		{
+			this.x = (*given).x;
+			this.y = (*given).y;
+			return *this;
+		};
 
 		T magnitude(const Vector2d &vec2d)
 		{

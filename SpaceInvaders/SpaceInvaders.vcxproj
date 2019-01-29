@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -123,35 +123,57 @@
   <ItemGroup>
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="Decoration.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="GameDescriptor.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="IAttacking.cpp" />
     <ClCompile Include="Invader.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Resources.cpp" />
+    <ClCompile Include="Saver.cpp" />
     <ClCompile Include="Vector2d.cpp" />
     <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boss.h" />
     <ClInclude Include="Bullet.h" />
-    <ClInclude Include="Decoration.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="GameDescriptor.h" />
     <ClInclude Include="IAttacking.h" />
     <ClInclude Include="Invader.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="SceneDatails.h" />
+    <ClInclude Include="Resources.h" />
+    <ClInclude Include="Saver.h" />
     <ClInclude Include="Vector2d.h" />
     <ClInclude Include="Wall.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="data\images\16x16bullet.png" />
     <Image Include="data\images\background.png" />
-    <Image Include="data\images\bullet_player.png" />
+    <Image Include="data\images\boss_bullet.png" />
+    <Image Include="data\images\duck_invader.png" />
     <Image Include="data\images\invader_pos1.png" />
     <Image Include="data\images\invader_pos2.png" />
+    <Image Include="data\images\load_circle.png" />
+    <Image Include="data\images\new_ufo.png" />
+    <Image Include="data\images\two_in_1.jpg" />
     <Image Include="data\images\ufo.png" />
+    <Image Include="data\images\wall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="data\audio\music\background_music.wav" />
+    <Media Include="data\audio\music\preview_background_music.wav" />
+    <Media Include="data\audio\sound\on_enemy_died.wav" />
+    <Media Include="data\audio\sound\on_player_damaged.wav" />
+    <Media Include="data\audio\sound\on_player_died.wav" />
+    <Media Include="data\audio\sound\shoot_sound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="data\fonts\Pixel-Miners.otf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
