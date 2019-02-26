@@ -1,9 +1,15 @@
 #pragma once
+#include "GameObject.h"
+
 class GameDescriptor
 {
 public:
-	int gameLvl;
-	int score;
+	static int gameLvl;
+	static int score;
+
+	static float gameWindowH;
+	static float gameWindowW;
+
 	GameDescriptor();
 	~GameDescriptor();
 };

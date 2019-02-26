@@ -2,28 +2,34 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
+//split this class as TextureLoader and SoundLoader
+
+
 class Resources
 {
 public:
-	sf::Music* backgroundPreviewM;
-	sf::Music* backgroundGameM;
+	static sf::Music* backgroundPreviewM;
+	static sf::Music* backgroundGameM;
 
-	sf::Sound* onShootS;
-	sf::Sound* onEnemyDiedS;
-	sf::Sound* onPlayerDiedS;
-	sf::Sound* onPlayerLoseLifeS;
-	void loadMusic();
+	static sf::Sound* onShootS;
+	static sf::Sound* onEnemyDiedS;
+	static sf::Sound* onPlayerDiedS;
+	static sf::Sound* onPlayerLoseLifeS;
 
-	sf::Sprite* hypnoticCircle;
-	sf::Sprite* playerSpr;
-	sf::Sprite* enemySpr;
-	sf::Sprite* bulletSpr;
-	sf::Sprite* bossSpr;
-	sf::Sprite* backgroundSpr;
-	void loadTextures();
+	static void loadMusic();
 
-	sf::Font font8Bit;
-	void loadFonts();
+	static sf::Sprite* hypnoticCircle;
+	static sf::Sprite* playerSpr;
+	static sf::Sprite* enemySpr;
+	static sf::Sprite* bulletSpr;
+	static sf::Sprite* bossSpr;
+	static sf::Sprite* backgroundSpr;
+
+	static void loadTextures();
+
+	static sf::Font font8Bit;
+
+	static void loadFonts();
 
 	Resources();
 	~Resources();

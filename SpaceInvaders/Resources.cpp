@@ -1,5 +1,21 @@
 #include "Resources.h"
 
+ sf::Music* Resources::backgroundPreviewM;
+ sf::Music* Resources::backgroundGameM;
+
+ sf::Sound* Resources::onShootS;
+ sf::Sound* Resources::onEnemyDiedS;
+ sf::Sound* Resources::onPlayerDiedS;
+ sf::Sound* Resources::onPlayerLoseLifeS;
+ 
+ sf::Sprite* Resources::hypnoticCircle;
+ sf::Sprite* Resources::playerSpr;
+ sf::Sprite* Resources::enemySpr;
+ sf::Sprite* Resources::bulletSpr;
+ sf::Sprite* Resources::bossSpr;
+ sf::Sprite* Resources::backgroundSpr;
+ 
+ sf::Font Resources::font8Bit;
 
 void Resources::loadMusic()
 {

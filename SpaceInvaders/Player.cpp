@@ -1,21 +1,28 @@
 #include "Player.h"
+#include "Engine.h"
 
 void Player::update()
-{
+{	
 }
 
-//rewrite attack should not appear in move
-void Player::move(sf::Event e)
+void Player::loadSound()
+{
+	onPlayerDiedS = Resources::onPlayerDiedS;
+	onPlayerLoseLifeS = Resources::onPlayerLoseLifeS;
+	onShoot = Resources::onShootS;
+}
+
+void Player::action(sf::Event e)
 {
 	switch (e.key.code)
 	{
 	case (sf::Keyboard::Left):
-		if(position.x > spriteWidth / 2)
-		position.x -= 10;
+		if (position.x > spriteWidth / 2)
+			move(-10);
 		break;
 	case (sf::Keyboard::Right):
-		if(position.x < screenSize - spriteWidth)
-		position.x += 10;
+		if (position.x < GameDescriptor::gameWindowW - spriteWidth/2)
+			move(10);
 		break;
 	case (sf::Keyboard::Space):
 		attack();
@@ -25,13 +32,20 @@ void Player::move(sf::Event e)
 	}
 }
 
-void Player::attack()
+void Player::move(float dislocation)
 {
-	//DO STUFF
+	position.x += dislocation;
 }
 
-Player::Player(sf::Sprite spr, double posX, double posY, double w, double h, double screenSiezeX) :
-	GameObject(spr, posX, posY, w, h), screenSize(screenSiezeX)
+void Player::attack()
+{
+	Engine::addObject(new Bullet(Resources::playerSpr, utilities::Vector2d<double>(position.x, position.y - spriteHeight / 2),
+		Resources::playerSpr->getGlobalBounds().width,
+		Resources::playerSpr->getGlobalBounds().height));
+}
+
+Player::Player(const sf::Sprite* spr, utilities::Vector2d<double> pos, double w, double h) :
+	GameObject(spr, pos, w, h)
 {
 }
 

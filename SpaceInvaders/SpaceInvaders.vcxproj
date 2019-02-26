@@ -123,6 +123,8 @@
   <ItemGroup>
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="IMoveable.cpp" />
+    <ClCompile Include="MenuButton.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameDescriptor.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -130,6 +132,7 @@
     <ClCompile Include="Invader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="ParseBinary.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Resources.cpp" />
     <ClCompile Include="Saver.cpp" />
@@ -139,11 +142,14 @@
   <ItemGroup>
     <ClInclude Include="Boss.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="IMoveable.h" />
+    <ClInclude Include="MenuButton.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="GameDescriptor.h" />
     <ClInclude Include="IAttacking.h" />
     <ClInclude Include="Invader.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="ParseBinary.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Resources.h" />

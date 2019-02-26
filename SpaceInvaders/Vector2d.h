@@ -1,7 +1,7 @@
 #pragma once
 #include <cmath>
 
-namespace inGame 
+namespace utilities 
 {
 	template<class T>
 	class Vector2d	
@@ -34,8 +34,8 @@ namespace inGame
 		};
 
 		///MB FIX IN FUTURE
-		Vector2d<T>& operator=(const Vector2d<T> &given)
-		{
+		Vector2d<T>& operator=(const Vector2d<T> *given)
+		{		 
 			this.x = (*given).x;
 			this.y = (*given).y;
 			return *this;

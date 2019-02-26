@@ -33,9 +33,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Boss.cpp">
       <Filter>Source Files\Drawable/cpp</Filter>
     </ClCompile>
@@ -74,6 +71,18 @@
     </ClCompile>
     <ClCompile Include="GameDescriptor.cpp">
       <Filter>Source Files\Utilities/cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuButton.cpp">
+      <Filter>Source Files\Utilities/cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="ParseBinary.cpp">
+      <Filter>Source Files\Utilities/cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IMoveable.cpp">
+      <Filter>Source Files\Abstraction/cpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +124,15 @@
     </ClInclude>
     <ClInclude Include="GameDescriptor.h">
       <Filter>Header Files\Utilities/h</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuButton.h">
+      <Filter>Header Files\Utilities/h</Filter>
+    </ClInclude>
+    <ClInclude Include="ParseBinary.h">
+      <Filter>Header Files\Utilities/h</Filter>
+    </ClInclude>
+    <ClInclude Include="IMoveable.h">
+      <Filter>Header Files\Abstraction/h</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

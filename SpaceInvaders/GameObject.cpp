@@ -1,9 +1,8 @@
 #include "GameObject.h"
 
-GameObject::GameObject(sf::Sprite spr, double posX, double posY, double w, double h)
+GameObject::GameObject(const sf::Sprite* spr, utilities::Vector2d<double> pos, double w, double h)
 {	
-	position.x = posX;
-	position.y = posY;
+	position = pos;
 	spriteWidth = w;
 	spriteHeight = h;
 }
