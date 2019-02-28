@@ -19,6 +19,7 @@ public:
 	static void loadMusic();
 
 	static sf::Sprite* hypnoticCircle;
+	static sf::Sprite* wallSpr;
 	static sf::Sprite* playerSpr;
 	static sf::Sprite* enemySpr;
 	static sf::Sprite* bulletSpr;

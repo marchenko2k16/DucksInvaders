@@ -2,7 +2,7 @@
 
 
 
-sf::RenderWindow* Engine::gameWindow;
+//sf::RenderWindow* Engine::gameWindow;
 std::vector<GameObject*> Engine::gameObjects;
 sf::Clock Engine::clock;
 sf::Time Engine::time;
@@ -20,31 +20,56 @@ void Engine::resetElapsed()
 	elapsed = false;
 }
 
-void Engine::initGame(sf::RenderWindow* rw)
+void Engine::initGame(sf::RenderWindow& rw)
 {
-	gameWindow = rw;
+	gameWindow = &rw;
 	sf::Vector2u windowSize = gameWindow->getSize();
 	Resources::loadTextures();
 	Resources::loadMusic();
 	Resources::loadFonts();
-	GameDescriptor gameInfo;
+	GameDescriptor::setGameDescriptot(rw.getSize().x, rw.getSize().y);
 }
 
 
 //REWRITE AFTER MAKING BINARY PARSES
 void Engine::initGameObjects()
 {
-	
+	ParseBinary::getLvlDescription();
 	player = new Player(Resources::playerSpr, utilities::Vector2d<double>(500,950),
 		Resources::playerSpr->getGlobalBounds().width,
 		Resources::playerSpr->getGlobalBounds().height);
 	gameObjects.push_back(player);
-	for(int i = 0; i < 6; i++)
+
+	for(int i = 0; i < ParseBinary::wallsNum; i++)//WALLS
 	{
-		gameObjects.push_back(new Invader(Resources::playerSpr, utilities::Vector2d<double>(100, 100),
+		gameObjects.push_back(new Wall(Resources::wallSpr, ParseBinary::parsedPosition.front(),
 			Resources::playerSpr->getGlobalBounds().width,
 			Resources::playerSpr->getGlobalBounds().height));
+		ParseBinary::parsedPosition.pop();
 	}
+	for (int i = 0; i < ParseBinary::standartInvadesrNum; i++)//STANDART
+	{
+		gameObjects.push_back(new Invader(Resources::bossSpr, ParseBinary::parsedPosition.front(),
+			Resources::playerSpr->getGlobalBounds().width,
+			Resources::playerSpr->getGlobalBounds().height));
+		ParseBinary::parsedPosition.pop();
+	}
+	for (int i = 0; i < ParseBinary::shootingInvadersNum; i++)//SHOOTING
+	{
+		gameObjects.push_back(new Invader(Resources::bossSpr, ParseBinary::parsedPosition.front(),
+			Resources::playerSpr->getGlobalBounds().width,
+			Resources::playerSpr->getGlobalBounds().height));
+		ParseBinary::parsedPosition.pop();
+	}
+
+	for (int i = 0; i < ParseBinary::bosses; i++)//BOSS
+	{
+		gameObjects.push_back(new Boss(Resources::bossSpr, ParseBinary::parsedPosition.front(),
+			Resources::playerSpr->getGlobalBounds().width,
+			Resources::playerSpr->getGlobalBounds().height));
+		ParseBinary::parsedPosition.pop();
+	}
+
 
 }
 
@@ -65,12 +90,7 @@ void Engine::preview()
 	Resources::hypnoticCircle->setOrigin(50, 50);//rewrite this hard code
 	Resources::hypnoticCircle->setPosition(500, 600);
 
-	sf::Texture background_texture;
-	background_texture.loadFromFile("data\\images\\background.png");
-	background_texture.setRepeated(true);
-	sf::Sprite background_sprite;
-	background_sprite.setTexture(background_texture);
-	background_sprite.setTextureRect(sf::IntRect(0, 0, 1000, 1000));
+	Resources::backgroundSpr->setTextureRect(sf::IntRect(0, 0, 1000, 1000));
 
 	sf::Event e;
 	int rotateAngle = 0;
@@ -96,7 +116,7 @@ void Engine::preview()
 		Resources::hypnoticCircle->rotate(rotateAngle);
 
 		gameWindow->clear();
-		gameWindow->draw(background_sprite);
+		gameWindow->draw(*Resources::backgroundSpr);
 		gameWindow->draw(*Resources::hypnoticCircle);
 		gameWindow->draw(previewText);
 		gameWindow->display();
@@ -113,6 +133,7 @@ void Engine::addObject(GameObject * additionalObj)
 
 void Engine::loop()
 {
+	Resources::backgroundGameM->play();
 	//TODO false = some condition like hotkey pressed
 	sf::Event event;
 	while (gameWindow->isOpen() || false)
@@ -120,33 +141,33 @@ void Engine::loop()
 		
 		while (gameWindow->pollEvent(event))
 		{
-		//	player->action(event);
+			player->action(event);
+
 		}
 		
 		if (clock.getElapsedTime().asSeconds() > 1)
 		{
 			isElapsed();
 		}
-		//for (auto e : gameObjects)
-		//{
-		//	e->update();
-		//}
+		for (auto e : gameObjects)
+		{
+			e->update();
+		}
 		
 		if (clock.getElapsedTime().asSeconds() > 1)
 		{
-			std::cout << "Tick done\n";
 			resetElapsed();
 		}
 		
 		gameWindow->clear();
+
 		Resources::backgroundSpr->setTextureRect(sf::IntRect(0, 0, 1000, 1000));
 		gameWindow->draw(*(Resources::backgroundSpr));
-		//for (auto e : gameObjects)
-		//{
-		//	gameWindow->draw((*e->spr));
-		//	gameWindow->display(); 
-		//}
-
+		for (auto e : gameObjects)
+		{
+			gameWindow->draw((e->spr));
+		}
+		gameWindow->display(); 
 	}
 }
 

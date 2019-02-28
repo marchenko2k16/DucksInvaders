@@ -6,41 +6,46 @@
 
 MovementState Invader::moveDir;
 
+void Invader::moveHorizontal(float dislocation) //moveX
+{
+	position.x += dislocation;
+	spr.setPosition(position.x, position.y);
+}
+
+void Invader::moveVertical(float dislocation)
+{
+	position.y += dislocation;
+	spr.setPosition(position.x, position.y);
+}
+
 void Invader::update()
 {
 	if (Engine::elapsed == true && Invader::moveDir == MovementState::RIGHT)
 	{
-		position.x += 10;
+		moveHorizontal(10); //moveX
+
 	}
 	else if (Engine::elapsed == true && Invader::moveDir == MovementState::LEFT)
 	{
-		position.x -= 10;
+		moveHorizontal(-10);
 	}
 
 	if (Invader::moveDir == MovementState::LEFT && position.x <= spriteWidth / 2)
 	{
 		Invader::moveDir = MovementState::RIGHT;
-		position.y += 10;
-		std::cout << "INVADER MOVED LEFT\n";
+		moveVertical(10);
 	}
 	else if (Invader::moveDir == MovementState::RIGHT && position.x >= GameDescriptor::gameWindowW - spriteWidth / 2)
 	{
 		Invader::moveDir = MovementState::LEFT;
-		position.y += 10;
+		moveVertical(10);
 	}
-
-
 }
 
 void Invader::loadSound()
 {
 	sf::Sound* onDeath = Resources::onEnemyDiedS;//find another sound
 	sf::Sound* onAttack = Resources::onShootS;
-}
-
-void Invader::move(float dislocation)
-{
-	position.x += dislocation;
 }
 
 void Invader::attack()

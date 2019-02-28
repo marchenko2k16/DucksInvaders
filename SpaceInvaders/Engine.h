@@ -6,6 +6,9 @@
 #include <iostream>
 #include "Player.h"
 #include "Invader.h"
+#include "ParseBinary.h"
+#include "Wall.h"
+#include "Boss.h"
 
 class Engine
 {
@@ -22,19 +25,19 @@ public:
 	static void isElapsed();
 	void resetElapsed();
 
-	static sf::RenderWindow* gameWindow;
+	sf::RenderWindow* gameWindow;
 
 	void typeTextLetterByLetter(std::string txt, float posX, float posY);
 
-	void initGame(sf::RenderWindow* rw);
+	void initGame(sf::RenderWindow& rw);
 	void initGameObjects();
 	void preview();
+	void loop();
 
 	static void addObject(GameObject * additionalObj);
 	static void deleteObject();
 	void clearMemory();
 
-	void loop();
 
 
 	Engine();

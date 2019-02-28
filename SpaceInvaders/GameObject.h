@@ -5,8 +5,9 @@
 class GameObject 
 {
 public:
-	const sf::Sprite* spr;
+	sf::Sprite spr;
 	utilities::Vector2d<double> position;
+
 	double spriteWidth;
 	double spriteHeight;
 	

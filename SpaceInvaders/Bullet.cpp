@@ -3,12 +3,13 @@
 
 void Bullet::move()
 {
-	--position.y;
+	position.y -= 1;
 }
 
 void Bullet::update()
 {
 	move();
+	spr.setPosition(position.x, position.y);
 }
 
 void Bullet::loadSound()

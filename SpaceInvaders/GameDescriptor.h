@@ -4,6 +4,8 @@
 class GameDescriptor
 {
 public:
+	static void setGameDescriptot(double winH, double winW);
+
 	static int gameLvl;
 	static int score;
 

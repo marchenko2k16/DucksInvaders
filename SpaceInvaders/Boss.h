@@ -16,7 +16,9 @@ protected:
 	sf::Sound* onDamaged;
 	sf::Sound* onAttack;
 
-	void move(float disloc) override;
+	void moveHorizontal(float disloc) override;
+	void moveVertical(float disloc) override;
+	void attack() override;
 public:
 	void loadSound() override;
 	void update() override;

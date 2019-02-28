@@ -8,7 +8,8 @@
  sf::Sound* Resources::onPlayerDiedS;
  sf::Sound* Resources::onPlayerLoseLifeS;
  
- sf::Sprite* Resources::hypnoticCircle;
+ sf::Sprite* Resources::hypnoticCircle;	 
+ sf::Sprite* Resources::wallSpr;
  sf::Sprite* Resources::playerSpr;
  sf::Sprite* Resources::enemySpr;
  sf::Sprite* Resources::bulletSpr;
@@ -58,6 +59,10 @@ void Resources::loadTextures()
 	hypnoticT->loadFromFile("data\\images\\load_circle.png");
 	hypnoticCircle = new sf::Sprite(*hypnoticT);
 
+	sf::Texture* wallT = new sf::Texture();
+	wallT->loadFromFile("data\\images\\wall.png");
+	wallSpr = new sf::Sprite(*wallT);
+
 	sf::Texture* playerT = new sf::Texture();
 	playerT->loadFromFile("data\\images\\new_ufo.png");
 	playerSpr = new sf::Sprite(*playerT);
@@ -67,7 +72,7 @@ void Resources::loadTextures()
 	enemySpr = new sf::Sprite(*enemyT);
 
 	sf::Texture* bulletT = new sf::Texture();
-	bulletT->loadFromFile("data\\images\\bullet_player.png");
+	bulletT->loadFromFile("data\\images\\16x16bullet.png");
 	bulletSpr = new sf::Sprite(*bulletT);
 	
 	sf::Texture* bossT = new sf::Texture();

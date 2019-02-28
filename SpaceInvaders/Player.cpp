@@ -12,36 +12,54 @@ void Player::loadSound()
 	onShoot = Resources::onShootS;
 }
 
+void Player::moveHorizontal(float dislocation) //moveX
+{
+	position.x += dislocation;
+	spr.setPosition(position.x, position.y);
+}
+
+void Player::moveVertical(float dislocation)
+{
+	position.y += dislocation;
+	spr.setPosition(position.x, position.y);
+}
+
 void Player::action(sf::Event e)
 {
-	switch (e.key.code)
+	if (e.type == e.KeyPressed)
 	{
-	case (sf::Keyboard::Left):
-		if (position.x > spriteWidth / 2)
-			move(-10);
-		break;
-	case (sf::Keyboard::Right):
-		if (position.x < GameDescriptor::gameWindowW - spriteWidth/2)
-			move(10);
-		break;
-	case (sf::Keyboard::Space):
-		attack();
-		break;
-	default:
-		break;
+		switch (e.key.code)
+		{
+		case (sf::Keyboard::Left):
+			if (position.x > spriteWidth / 2)
+			{
+				moveHorizontal(-10);
+			}
+			break;
+		case (sf::Keyboard::Right):
+			if (position.x < GameDescriptor::gameWindowW - spriteWidth / 2)
+			{
+				moveHorizontal(10);
+			}
+			break;
+		case (sf::Keyboard::Space):
+			attack();
+			break;
+		default:
+			break;
+		}
+
 	}
 }
 
-void Player::move(float dislocation)
-{
-	position.x += dislocation;
-}
 
 void Player::attack()
 {
-	Engine::addObject(new Bullet(Resources::playerSpr, utilities::Vector2d<double>(position.x, position.y - spriteHeight / 2),
-		Resources::playerSpr->getGlobalBounds().width,
-		Resources::playerSpr->getGlobalBounds().height));
+	Engine::addObject(new Bullet(Resources::bulletSpr, utilities::Vector2d<double>(position.x, position.y - spriteHeight / 2),
+		Resources::bulletSpr->getGlobalBounds().width,
+		Resources::bulletSpr->getGlobalBounds().height));
+	Resources::onShootS->play();
+	/*FIX THIS ONE*/
 }
 
 Player::Player(const sf::Sprite* spr, utilities::Vector2d<double> pos, double w, double h) :
@@ -50,5 +68,7 @@ Player::Player(const sf::Sprite* spr, utilities::Vector2d<double> pos, double w,
 }
 
 
-Player::~Player()
-= default;
+Player::~Player() 
+{
+
+};
